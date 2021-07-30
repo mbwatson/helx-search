@@ -27,7 +27,7 @@ const validateResult = result => {
   return result.description.trim() && result.name.trim()
 }
 
-export const HelxSearch = ({ searchURL = 'https://helx.renci.org', children }) => {
+export const HelxSearch = ({ searchURL = 'https://helx.renci.org', basePath = '', children }) => {
   const [query, setQuery] = useState('')
   const [isLoadingResults, setIsLoadingResults] = useState(false);
   const [error, setError] = useState({})
@@ -154,7 +154,7 @@ export const HelxSearch = ({ searchURL = 'https://helx.renci.org', children }) =
     if (trimmedQuery !== '') {
       setQuery(trimmedQuery)
       setCurrentPage(1)
-      navigate(`/?q=${trimmedQuery}&p=1`)
+      navigate(`${ basePath }?q=${trimmedQuery}&p=1`)
     }
   }
 

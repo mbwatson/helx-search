@@ -5,11 +5,16 @@ import './app.scss'
 
 const { Content, Header } = Layout
 
+const config = {
+  searchURL: 'https://helx.renci.org',
+  basePath: '',
+}
+
 export const App = () => {
   return (
     <div className="app">
       <LocationProvider>
-        <HelxSearch searchURL="https://helx.renci.org">
+        <HelxSearch { ...config }>
             <div className="search-header">
               <SearchForm />
             </div>

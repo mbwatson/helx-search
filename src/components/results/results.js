@@ -15,7 +15,7 @@ const GRID = 'GRID'
 const LIST = 'LIST'
 
 export const SearchResults = () => {
-  const { query, results, totalResults, perPage, currentPage, pageCount, isLoadingResults, error, setSelectedResult } = useHelxSearch()
+  const { basePath, query, results, totalResults, perPage, currentPage, pageCount, isLoadingResults, error, setSelectedResult } = useHelxSearch()
   const [layout, setLayout] = useState(GRID)
 
   const NotifyLinkCopied = () => {
@@ -29,7 +29,7 @@ export const SearchResults = () => {
     <div className="header">
       <Text>{ totalResults } results for "{ query }" ({ pageCount } page{ pageCount > 1 && 's' })</Text> 
       <Tooltip title="Shareable link" placement="top">
-        <Link to={ `/?q=${ query }&p=${ currentPage }` } onClick={NotifyLinkCopied}><LinkIcon /></Link>
+        <Link to={ `${ basePath }?q=${ query }&p=${ currentPage }` } onClick={NotifyLinkCopied}><LinkIcon /></Link>
       </Tooltip>
       <Tooltip title="Toggle Layout" placement="top">
         <Radio.Group value={ layout } onChange={ handleChangeLayout }>
