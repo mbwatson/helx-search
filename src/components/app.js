@@ -1,10 +1,23 @@
-import { DemoComponent } from './demo-component'
+import { LocationProvider } from '@reach/router'
+import { Layout, Space } from 'antd'
+import { HelxSearch, SearchForm, SearchResults } from '../components'
 import './app.scss'
+
+const { Content, Header } = Layout
 
 export const App = () => {
   return (
     <div className="app">
-      <DemoComponent />
+      <LocationProvider>
+        <HelxSearch searchURL="https://helx.renci.org">
+            <Header className="search-header">
+              <SearchForm />
+            </Header>
+            <Content className="results-container">
+              <SearchResults />
+            </Content>
+        </HelxSearch>
+      </LocationProvider>
     </div>
   )
 }
