@@ -29,7 +29,7 @@ export const SearchResults = () => {
     <div className="header">
       <Text>{ totalResults } results for "{ query }" ({ pageCount } page{ pageCount > 1 && 's' })</Text> 
       <Tooltip title="Shareable link" placement="top">
-        <Link to={ `/helx/search?q=${ query }&p=${ currentPage }` } onClick={NotifyLinkCopied}><LinkIcon /></Link>
+        <Link to={ `/?q=${ query }&p=${ currentPage }` } onClick={NotifyLinkCopied}><LinkIcon /></Link>
       </Tooltip>
       <Tooltip title="Toggle Layout" placement="top">
         <Radio.Group value={ layout } onChange={ handleChangeLayout }>

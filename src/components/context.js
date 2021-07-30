@@ -154,7 +154,7 @@ export const HelxSearch = ({ searchURL = 'https://helx.renci.org', children }) =
     if (trimmedQuery !== '') {
       setQuery(trimmedQuery)
       setCurrentPage(1)
-      navigate(`/helx/search?q=${trimmedQuery}&p=1`)
+      navigate(`/?q=${trimmedQuery}&p=1`)
     }
   }
 
