@@ -1,8 +1,8 @@
 .search-form {
   display: flex;
+  flex-direction: column;
   gap: 0;
-  justify-content: center;
-  align-items: center;
+  align-items: stretch;
   min-width: 100%;
   transition:  min-height 500ms ease-out;
   padding: 1.5rem 2rem !important;
@@ -10,6 +10,7 @@
 
 .ant-form-item.search-input {
   flex: 1;
+  width: 100%;
 }
 
 .ant-row.ant-form-item {
@@ -17,9 +18,24 @@
 }
 
 .search-form-logo {
-  margin-right: 1rem !important;
+  margin: 0 auto 1rem auto !important;
 }
 
 .search-button {
   text-transform: uppercase;
+  width: 100%;
 }
+
+@media (min-width: 792px) {
+  .search-form {
+    flex-direction: row;
+  }
+  .search-form-logo {
+    margin: 0 1rem 0 0 !important;
+  }
+  .search-input {}
+  .search-button {
+
+  }
+}
+
