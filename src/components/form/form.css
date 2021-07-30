@@ -5,7 +5,7 @@
   align-items: center;
   min-width: 100%;
   transition:  min-height 500ms ease-out;
-  padding: 1rem !important;
+  padding: 1.5rem 2rem !important;
 }
 
 .ant-form-item.search-input {

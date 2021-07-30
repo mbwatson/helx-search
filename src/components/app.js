@@ -10,9 +10,9 @@ export const App = () => {
     <div className="app">
       <LocationProvider>
         <HelxSearch searchURL="https://helx.renci.org">
-            <Header className="search-header">
+            <div className="search-header">
               <SearchForm />
-            </Header>
+            </div>
             <Content className="results-container">
               <SearchResults />
             </Content>
