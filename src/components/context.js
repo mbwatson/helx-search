@@ -89,7 +89,7 @@ export const HelxSearch = ({ searchURL = 'https://helx.renci.org', basePath = ''
           if (hits.invalid.length) {
             console.error(`The following ${ hits.invalid.length } invalid results ` + 
               `were removed from the ${ hits.valid.length + hits.invalid.length } ` +
-              `results in the response.`, hits.invalid)
+              `returned results:`, hits.invalid)
           }
           setResults(hits.valid)
           setTotalResults(response.data.result.total_items)

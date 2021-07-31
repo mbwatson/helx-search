@@ -28,13 +28,13 @@ export const SearchForm = () => {
       <Form.Item className="search-form-logo"><img src={ HeLxLogo } width="100" /></Form.Item>
       <Form.Item className="search-input">
         <Input
-          ref={inputRef}
+          ref={ inputRef }
           allowClear
           autoFocus
           placeholder="Enter search term"
-          value={searchTerm}
-          onChange={handleChangeQuery}
-          onKeyDown={handleKeyDown}
+          value={ searchTerm }
+          onChange={ handleChangeQuery }
+          onKeyDown={ handleKeyDown }
         />
       </Form.Item>
       <Form.Item>
