@@ -3,6 +3,7 @@ const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 
 let mode = 'development'
 let target = 'web'
@@ -12,6 +13,19 @@ const plugins = [
   new HtmlWebpackPlugin({
     template: './src/index.html',
     favicon: './src/images/favicon.png',
+  }),
+  new ModuleFederationPlugin({
+    name: 'search',
+    library: { type: 'var', name: 'search' },
+    filename: 'remoteEntry.js',
+    exposes: {
+      './App': './src/app.js',
+    },
+    shared: {
+      'react': { singleton: true, requiredVersion: '^17.0.0' },
+      'react-dom': { singleton: true, requiredVersion: '^17.0.0' },
+      'antd': { singleton: true, requiredVersion: '^4.16.9' },
+    },
   }),
 ]
 
@@ -31,6 +45,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: process.env.NODE_ENV === 'production' ? `https://helx-search.netlify.app/` : 'https://localhost:3031/',
     assetModuleFilename: 'images/[hash][ext][query]',
   },
 
@@ -78,6 +93,6 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     hot: true,
-    port: 8081,
+    port: 3031,
   }
 }
