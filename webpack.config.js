@@ -45,7 +45,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: 'http://localhost:3031/',
+    publicPath: process.env.NODE_ENV === 'production' ? `https://helx-search.netlify.app/` : 'https://localhost:3031/',
     assetModuleFilename: 'images/[hash][ext][query]',
   },
 
