@@ -22,9 +22,9 @@ const plugins = [
       './App': './src/app.js',
     },
     shared: {
-      'react': { singleton: true },
-      'react-dom': { singleton: true },
-      'antd': { singleton: true },
+      'react': { singleton: true, requiredVersion: '^17.0.0' },
+      'react-dom': { singleton: true, requiredVersion: '^17.0.0' },
+      'antd': { singleton: true, requiredVersion: '^4.16.9' },
     },
   }),
 ]

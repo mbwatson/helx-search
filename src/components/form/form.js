@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Button, Form, Input } from 'antd'
 import { useHelxSearch } from '../'
 import './form.css'
-import HeLxLogo from '../../images/helx-logo.png'
 
 export const SearchForm = () => {
   const { doSearch, inputRef, query, totalResults } = useHelxSearch()
@@ -25,7 +24,6 @@ export const SearchForm = () => {
 
   return (
     <Form onFinish={ () => doSearch(searchTerm) } className="search-form">
-      <Form.Item className="search-form-logo"><img src={ HeLxLogo } width="100" /></Form.Item>
       <Form.Item className="search-input">
         <Input
           ref={ inputRef }
